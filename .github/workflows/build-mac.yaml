@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-12
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install python python-tk
+          xcode-select —install
+          python -m ensurepip
+          pip3 install pyinstaller
+          git clone https://github.com/matesh/mqttk.git
+          cd mqttk
+          pip3 install .
+          pyinstaller mqttk.spec
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mqttk-intel.app
+          path: ~/mqttk/dist/mqttk.app
