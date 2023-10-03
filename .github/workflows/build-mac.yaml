@@ -14,7 +14,6 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install python python-tk
-          xcode-select --install
           python -m ensurepip
           pip3 install pyinstaller
           git clone https://github.com/matesh/mqttk.git
