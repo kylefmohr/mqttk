@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: mqttk-intel.app
-          path: ~/mqttk/dist/mqttk.app
+          path: /Users/runner/work/mqttk/mqttk/dist/mqttk.app
