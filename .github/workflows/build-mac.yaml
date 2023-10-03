@@ -16,7 +16,8 @@ jobs:
           brew install python python-tk
           python3 -m ensurepip
           pip3 install pyinstaller
-          cd mqttk
+          ls
+          pwd
           pip3 install .
           pyinstaller mqttk.spec
       - name: Upload Artifact
